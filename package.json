@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/zhyuanzhu/rvpub/issues"
   },
-  "homepage": "https://github.com/zhyuanzhu/rvpub#readme"
+  "homepage": "https://github.com/zhyuanzhu/rvpub#readme",
+  "dependencies": {
+    "commander": "^7.2.0"
+  }
 }
