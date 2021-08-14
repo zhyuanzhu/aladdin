@@ -1,3 +1,3 @@
-# 关于 RVPUB
+# 关于 Aladdin
 
-`RVPUB` 是一个集成 `Vue` 和 `React` 的项目创建、静态资源发布的脚手架工具
+`Aladdin` 是一个集成 `Vue` 和 `React` 的项目创建、静态资源发布的脚手架工具
