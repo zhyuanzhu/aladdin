@@ -1,27 +1,27 @@
 {
-  "name": "rvpub",
-  "version": "0.0.1",
-  "description": "create Vue.js or React.js project",
+  "name": "aladdin",
+  "version": "1.0.0",
+  "description": "a simple cli tools",
   "main": "index.js",
-  "bin": {
-    "rvpub": "index.js"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "publish": "npm publish"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": "bin/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhyuanzhu/rvpub.git"
+    "url": "git+https://github.com/zhyuanzhu/aladdin.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "zhyuanzhu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zhyuanzhu/rvpub/issues"
+    "url": "https://github.com/zhyuanzhu/aladdin/issues"
   },
-  "homepage": "https://github.com/zhyuanzhu/rvpub#readme",
-  "dependencies": {
-    "commander": "^7.2.0"
+  "homepage": "https://github.com/zhyuanzhu/aladdin#readme",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  },
+  "engines": {
+    "node": ">=12.10"
   }
 }

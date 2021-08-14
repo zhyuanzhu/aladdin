@@ -1,11 +1,8 @@
-.DS_Store
 node_modules
-/dist
-/public/iconfont
+
+yarn.lock
+.DS_Store
 package-lock.json
-# local env files
-.env.local
-.env.*.local
 
 # Log files
 npm-debug.log*
