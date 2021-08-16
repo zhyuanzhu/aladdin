@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "cac": "^6.7.3",
+    "node-fetch": "^2.6.1",
     "ora": "^5.4.1",
     "prompts": "^2.4.1"
   }
