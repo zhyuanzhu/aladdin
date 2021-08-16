@@ -5,6 +5,8 @@ import ini from 'ini'
 import envPaths from 'env-paths'
 import { name } from '../../package.json'
 
+// ini 的作用
+
 const parseIni = (filename: string): Record<string, any> | undefined => {
   try {
     return ini.parse(fs.readFileSync(filename, 'utf-8'))
