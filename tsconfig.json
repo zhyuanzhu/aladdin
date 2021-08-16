@@ -9,5 +9,5 @@
     "esModuleInterop": true,
     "pretty": true
   },
-  "include": ["scr", "types.d.ts"]
+  "include": ["src", "types.d.ts"]
 }

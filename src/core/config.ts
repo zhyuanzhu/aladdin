@@ -7,6 +7,8 @@ import { name } from '../../package.json'
 
 // ini 的作用
 
+// envPaths 根据软件开发规则，将文件缓存至系统的缓存文件夹
+
 const parseIni = (filename: string): Record<string, any> | undefined => {
   try {
     return ini.parse(fs.readFileSync(filename, 'utf-8'))
