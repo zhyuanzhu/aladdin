@@ -3,11 +3,13 @@ import { Context, Options, File } from './types'
 import confirm from './confirm'
 import resolve from './resolve'
 import load from './load'
+import inquire from './inquire'
 
 const creator = new Aladding<Context>();
 creator.use(confirm)
 creator.use(resolve)
 creator.use(load)
+creator.use(inquire)
 
 
 /**
