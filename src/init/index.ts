@@ -1,12 +1,18 @@
 import { Aladding } from '../core/index'
 import { Context, Options, File } from './types'
 import confirm from './confirm'
+import resolve from './resolve';
 
 const creator = new Aladding<Context>();
 creator.use(confirm)
+creator.use(resolve)
 
 
-
+/**
+ * @param { string } template 模版名称 / 地址
+ * @param { string } project 项目名称 / 文件夹
+ * @param { Options } options 
+ */
 export default async(template: string, project: string = '.', options: Options = {}): Promise<void> => {
   if (template == null || template == '') {
     throw new Error('模版 `template` 不能为空')
