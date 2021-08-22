@@ -4,5 +4,7 @@ declare const _default: {
     git: Record<string, any> | undefined;
     paths: envPaths.Paths;
     ini: (filename: string) => Record<string, any> | undefined;
+    register: string;
+    branch: string;
 };
 export default _default;

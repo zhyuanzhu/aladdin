@@ -8,3 +8,6 @@ export declare const mkdir: (input: string, options?: fs.MakeDirectoryOptions | 
 export declare const remove: (input: string, options?: fs.RmDirOptions | undefined) => Promise<void>;
 export declare const read: (input: string) => Promise<Buffer>;
 export declare const write: (input: string, contents: string | Uint8Array) => Promise<void>;
+export declare const untildify: (input: string) => string;
+export declare const tildify: (input: string) => string;
+export declare const extract: (input: string, output: string, strip?: number) => Promise<void>;
