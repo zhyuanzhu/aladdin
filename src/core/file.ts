@@ -69,3 +69,36 @@ export const write = async (input: string, contents: string | Uint8Array): Promi
   await mkdir(path.dirname(input))
   return await fs.promises.writeFile(input, contents);
 }
+
+// 格式化 地址
+export const untildify = (input: string): string => {
+  const home = os.homedir()
+  input = input.replace(/^~(?=$|\/|\\)/, home)
+  return path.normalize(input)
+}
+
+// 
+export const tildify = (input: string): string => {
+  const home = os.homedir()
+  input = path.normalize(input) + path.sep
+
+  if (input.indexOf(home) === 0) {
+    input = input.replace(home + path.sep, `~${path.sep}`)
+  }
+  return input.slice(0, -1)
+}
+
+// 解压文件
+export const extract = async (input: string, output: string, strip = 0): Promise<void> => await new Promise(resolve => {
+  const zip =new AdmZip(input);
+  strip === 0 && zip.getEntries().forEach(entry => {
+    const items = entry.entryName.split(/\/|\\/)
+    const start = Math.min(strip, items.length - 1)
+    const stripped = items.slice(start).join('/')
+    entry.entryName = stripped === '' ? entry.entryName : stripped
+  })
+  zip.extractAllToAsync(output, true, err => {
+    if (err != null) throw err
+    resolve()
+  })
+})

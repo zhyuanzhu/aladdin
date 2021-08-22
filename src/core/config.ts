@@ -18,7 +18,8 @@ const parseIni = (filename: string): Record<string, any> | undefined => {
 }
 
 const defaults = {
-  
+  register: '',  // github 模版 url 地址
+  branch: 'master',
 }
 
 const config = parseIni(path.join(os.homedir(), `.${name}rc`));
