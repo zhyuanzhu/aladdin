@@ -1,11 +1,13 @@
 import { Aladding } from '../core/index'
 import { Context, Options, File } from './types'
 import confirm from './confirm'
-import resolve from './resolve';
+import resolve from './resolve'
+import load from './load'
 
 const creator = new Aladding<Context>();
 creator.use(confirm)
 creator.use(resolve)
+creator.use(load)
 
 
 /**
