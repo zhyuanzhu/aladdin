@@ -9,6 +9,7 @@ import prepare from './prepare'
 import rename from './rename'
 import render from './render'
 import emit from './emit'
+import install from './install'
 
 const creator = new Aladding<Context>();
 creator.use(confirm)
@@ -20,6 +21,7 @@ creator.use(prepare)
 creator.use(rename)
 creator.use(render)
 creator.use(emit)
+creator.use(install)
 
 
 /**
