@@ -6,6 +6,7 @@ import load from './load'
 import inquire from './inquire'
 import setp from './setp'
 import prepare from './prepare'
+import rename from './rename'
 
 const creator = new Aladding<Context>();
 creator.use(confirm)
@@ -14,6 +15,7 @@ creator.use(load)
 creator.use(inquire)
 creator.use(setp)
 creator.use(prepare)
+creator.use(rename)
 
 
 /**
