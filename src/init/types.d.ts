@@ -1,4 +1,4 @@
-import { Answers } from "prompts";
+import { Answers, PromptObject } from "prompts";
 
 export interface Options {
   // 是否覆盖
@@ -14,6 +14,29 @@ export interface Template {
 
   // 版本
   version?: string
+
+  // 模版资源目录
+  source?: string
+
+  metadata?: Record<string, unknown>
+
+  prompts?: PromptObject | PromptObject[]
+
+  filters?: Record<string, (answers: Answers<string>) => boolean>
+
+  helpers?: Record<string, unknown>
+
+  install?: false | 'npm' | 'yarn'
+
+  init?: boolean
+
+  setup?: (ctx: Context) => Promise<void>
+
+  prepare?: (ctx: Context) => Promise<void>
+
+  emit?: (ctx: Context) => Promise<void>
+
+  complete?: ((ctx: Context) => string | Promise<string> | Promise<void>) | string
 }
 
 export interface File {
