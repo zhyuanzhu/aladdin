@@ -8,6 +8,7 @@ import setp from './setp'
 import prepare from './prepare'
 import rename from './rename'
 import render from './render'
+import emit from './emit'
 
 const creator = new Aladding<Context>();
 creator.use(confirm)
@@ -18,6 +19,7 @@ creator.use(setp)
 creator.use(prepare)
 creator.use(rename)
 creator.use(render)
+creator.use(emit)
 
 
 /**
