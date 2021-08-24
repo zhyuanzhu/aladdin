@@ -31,9 +31,22 @@ export const processor = (ctx: Context) => (item: PromptObject) => {
   switch (item.name) {
     case 'name':
       item.validate = item.validate ?? validator.name
+      item.initial = item.initial ?? path.basename(ctx.dest)
       break;
-  
-    default:
+    case 'version':
+      item.validate = item.validate ?? validator.version
+      item.initial = item.initial ?? config.npm?.['init-version']?? '0.0.1'
+      break
+    case 'author':
+      item.initial = item.initial ?? config.npm?.['init-author-name'] ?? config.git?.user?.name
+      break
+    case 'email':
+      item.validate = item.validate ?? validator.email
+      item.initial = item.initial ?? config.npm?.['init-author-email'] ?? config.git?.user?.email
+      break
+    case 'url':
+      item.validate = item.validate ?? validator.url
+      item.initial = item.initial ?? config.npm?.['init-author-url'] ?? config.git?.user?.url
       break;
   }
 }
@@ -58,4 +71,11 @@ export default async (ctx: Context): Promise<void> => {
 
   ctx.config.prompts.forEach(processor(ctx))
 
+  prompts.override(ctx.options)
+
+  const onCancel = (): never => {
+    throw new Error('已经取消了当前任务.')
+  }
+
+  Object.assign(ctx.answers, await prompts(ctx.config.prompts, { onCancel }))
 }

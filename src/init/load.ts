@@ -13,7 +13,7 @@ export default async (ctx: Context): Promise<void> => {
     Object.assign(ctx.config, mod)
   } catch (error) {
     if (error.code === 'MODULE_NOT_FOND') return
-    error.message `Invalid template: ${error.message as string}`
+    // error.message `Invalid template: ${error.message as string}`
     throw error
   }
 }

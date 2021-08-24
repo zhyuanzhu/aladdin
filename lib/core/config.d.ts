@@ -6,5 +6,6 @@ declare const _default: {
     ini: (filename: string) => Record<string, any> | undefined;
     register: string;
     branch: string;
+    commitMessage: string;
 };
 export default _default;
