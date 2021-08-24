@@ -4,12 +4,14 @@ import confirm from './confirm'
 import resolve from './resolve'
 import load from './load'
 import inquire from './inquire'
+import setp from './setp'
 
 const creator = new Aladding<Context>();
 creator.use(confirm)
 creator.use(resolve)
 creator.use(load)
 creator.use(inquire)
+creator.use(setp)
 
 
 /**
