@@ -41,6 +41,11 @@ export const isEmpty = async (input: string): Promise<boolean> => {
   return files.length === 0;
 }
 
+// 查看是否 binary
+export const isBinary = (input: Uint8Array): boolean => {
+  return input.some(item => item === 65533 || item <= 8)
+}
+
 // 创建文件夹
 export const mkdir = async (input: string, options?: fs.MakeDirectoryOptions): Promise<void> => {
   await fs.promises.mkdir(input, { recursive: true, ...options })
