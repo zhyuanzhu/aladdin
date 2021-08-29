@@ -2,7 +2,8 @@
   "name": "aladdin",
   "version": "1.0.0",
   "description": "a simple cli tools",
-  "main": "./bin/index.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.js",
   "scripts": {
     "clean": "rimraf lib",
     "compile": "tsc",

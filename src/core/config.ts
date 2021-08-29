@@ -12,9 +12,7 @@ import { name } from '../../package.json'
 const parseIni = (filename: string): Record<string, any> | undefined => {
   try {
     return ini.parse(fs.readFileSync(filename, 'utf-8'))
-  } catch {
-    console.log('ini 设置缓存出错～')
-  }
+  } catch {}
 }
 
 const defaults = {

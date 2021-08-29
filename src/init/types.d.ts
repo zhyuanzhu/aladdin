@@ -18,8 +18,10 @@ export interface Template {
   // 模版资源目录
   source?: string
 
+  // 定义预置的数据
   metadata?: Record<string, unknown>
 
+  // 自定义模版一些配置问题
   prompts?: PromptObject | PromptObject[]
 
   filters?: Record<string, (answers: Answers<string>) => boolean>
@@ -58,10 +60,10 @@ export interface Context {
   readonly options: Options & Record<string, any>
 
 
-  // 绝对路径地址
+  // 模版的绝对路径地址
   src: string
 
-  // 目标文件
+  // 生成的目标文件的绝对路径
   dest: string
 
   // 模版配置

@@ -35,16 +35,22 @@ export default async(ctx: Context): Promise<void> => {
     {
       name: 'choose',
       type: (prev: boolean) => prev ? 'select' : null,
-      message: 'xxxx',
+      message: `${isCurrentFile ? '当前' : '目标'} 文件夹不是一个空文件夹，请选择处理方式`,
       hint: ' ',
       choices: [
-        { title: 'a', value: 'a' },
-        { title: 'b', value: 'b' },
-        { title: 'c', value: 'c' },
+        { title: '合并', value: 'merge' },
+        { title: '覆盖', value: 'overwrite' },
+        { title: '取消', value: 'cancel' },
       ]
     }
   ])
 
-  console.log(choose)
+  if (choose == null || choose == 'cancel') {
+    throw new Error('取消当前任务')
+  }
+
+  if (choose === 'overwrite') {
+    await file.remove(ctx.dest)
+  }
 
 }

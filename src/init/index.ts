@@ -11,6 +11,7 @@ import render from './render'
 import emit from './emit'
 import install from './install'
 import init from './init'
+import complete from './complete'
 
 const creator = new Aladding<Context>();
 creator.use(confirm)
@@ -24,6 +25,7 @@ creator.use(render)
 creator.use(emit)
 creator.use(install)
 creator.use(init)
+creator.use(complete)
 
 
 /**
@@ -35,8 +37,6 @@ export default async(template: string, project: string = '.', options: Options =
   if (template == null || template == '') {
     throw new Error('模版 `template` 不能为空')
   }
-
-  console.log('模版执行了')
 
   const context: Context = {
     template,
