@@ -13,3 +13,12 @@ cli.command('<template> [project]', '创建一个新 `template` 模版项目 到
   .action(init)
 
 cli.help().version(version).parse()
+
+const handleError = (err: Error): void => {
+  console.error(`Exception occurred: ${err.message}`)
+  process.exit(1)
+}
+
+// 全局拦截处理异常信息
+process.on('uncaughtException', handleError)
+process.on('unhandledRejection', handleError)
