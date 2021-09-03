@@ -95,8 +95,10 @@ export const tildify = (input: string): string => {
 
 // 解压文件
 export const extract = async (input: string, output: string, strip = 0): Promise<void> => await new Promise(resolve => {
-  const zip =new AdmZip(input);
-  strip === 0 && zip.getEntries().forEach(entry => {
+  const zip = new AdmZip(input);
+
+  // 如果 文件解压后只有一层，直接处理解压，如果不是一层，根据 传入的 strip 将需要的部分取出来
+  strip === 0 || zip.getEntries().forEach(entry => {
     const items = entry.entryName.split(/\/|\\/)
     const start = Math.min(strip, items.length - 1)
     const stripped = items.slice(start).join('/')
