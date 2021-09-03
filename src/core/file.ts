@@ -58,7 +58,7 @@ export const remove = async (input: string, options?: fs.RmDirOptions): Promise<
   if (result === false) return;
 
   // 如果不是 dir
-  if (result !== 'dir') return fs.promises.unlink(input);
+  if (result !== 'dir') return await fs.promises.unlink(input);
 
   //如果是文件夹
   await fs.promises.rmdir(input, { recursive: true, ...options })
@@ -82,7 +82,7 @@ export const untildify = (input: string): string => {
   return path.normalize(input)
 }
 
-// 
+// 处理成绝对路径
 export const tildify = (input: string): string => {
   const home = os.homedir()
   input = path.normalize(input) + path.sep

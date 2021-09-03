@@ -16,7 +16,7 @@ export const request = async (url: RequestInfo, init?: RequestInit): Promise<Res
 }
 
 export const download = async (url: string): Promise<string> => {
-  const response = await fetch(url);
+  const response = await request(url);
   await fs.mkdir(config.paths.temp, { recursive: true })
   const filename = join(config.paths.temp, Date.now().toString() + '.tmp')
   await pipe(response.body, createWriteStream(filename))
